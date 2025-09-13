@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 11-09-2025 a las 00:55:50
+=======
+-- Tiempo de generación: 02-09-2025 a las 16:48:10
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,12 +46,16 @@ CREATE TABLE `acudiente` (
 --
 
 INSERT INTO `acudiente` (`id_acudiente`, `nombre_completo`, `nivel_educativo`, `parentesco`, `email`, `telefono`, `contrasena`) VALUES
+<<<<<<< HEAD
 (1, 'Gustavo Petro', 'Profesional Universitario', 'Papá de los pollitos', 'cuidador@gmail.com', '3211234567', '12345'),
 (2, 'eytngf', 'wrnh', 'enhfg', 'uh,', 'shfnmz', 'szrywnhas'),
 (3, '3', '3', '3', '3@gmail.com', '3', '3'),
 (4, '3', '3', '3', '3@gmail.com', '3', '3'),
 (5, '30', '30', '30', '30@gmial.com', '30', '30'),
 (6, 'Fernando', 'Postgrado', 'Tío', 'f@gmail.com', '3145859876', '1234');
+=======
+(1, 'Gustavo Petro', 'Profesional Universitario', 'Papá de los pollitos', 'cuidador@gmail.com', '3211234567', '12345');
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 -- --------------------------------------------------------
 
@@ -224,8 +232,12 @@ CREATE TABLE `capacidad` (
 --
 
 INSERT INTO `capacidad` (`id_capacidad`, `descripcion`) VALUES
+<<<<<<< HEAD
 (1, 'Dibujo'),
 (2, 'g3ravfartbgaznrag');
+=======
+(1, 'Dibujo');
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 -- --------------------------------------------------------
 
@@ -244,6 +256,7 @@ CREATE TABLE `descripcion_general` (
   `id_estudiante` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+<<<<<<< HEAD
 --
 -- Volcado de datos para la tabla `descripcion_general`
 --
@@ -264,6 +277,8 @@ CREATE TABLE `diagnostico_dx_cie10` (
   `anio` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+=======
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 -- --------------------------------------------------------
 
 --
@@ -502,11 +517,15 @@ CREATE TABLE `estudiante` (
 --
 
 INSERT INTO `estudiante` (`id_estudiante`, `nombre`, `apellidos`, `tipo_documento`, `no_documento`, `lugar_nacimiento`, `fecha_nacimiento`, `sector`, `direccion`, `telefono`, `correo`, `contrasena`, `victima_conflicto`, `registro_victima`, `centro_proteccion`, `grupo_etnico`, `no_hermanos`, `lugar_que_ocupa`, `con_quien_vive`, `quien_apoya_crianza`, `afiliacion_salud`, `id_madre`, `id_padre`, `id_cuidador`) VALUES
+<<<<<<< HEAD
 (1, 'Max', 'Henriquez Pimiento', 'TI', NULL, 'San Gil, Santander', '2007-06-09', 'Urbano', 'Calle 1 #5-12', '3124567890', 'max@gmail.com', '12345', 'No', NULL, 'No', 'Albino', 1, '1', 'Padre, madre, hermana, gatos.', 'Madre, padre', 'Si', 1, 1, 1),
 (2, 'tysnhrg', 'wrnhsgf', 'TI', '134', ',kfjmgh', '1999-05-14', 'Rural', 'jyhrsgf', '765324312', 'ethsnmj', '12345', 'No', 'No', 'No', 'No', 3, '2', ',rydjmh', 'wnths', 'No', 4, 4, 2),
 (4, '4', '4', 'TI', '4', '4', '2004-04-04', 'Urbano', '4', '4', '4@gmail.com', '4', 'No', 'Si', 'No', 'No', 3, '2', '4', '4', 'Si', 6, 6, 4),
 (5, '6', '6', 'TI', '6', '6', '1999-02-20', 'Urbano', '123456', '1234567890', 'gmail@gmail.com', '123', 'No', 'No', 'No', 'No', 3, '2', 'na', 'na', 'Si', 7, 7, 5),
 (6, 'Sebastian', 'Feo Murillo', 'TI', '11017433478', 'Cosorro', '2009-12-04', 'Urbano', 'Altamira', '3549871245', 'feo@gmail.com', '1234', 'No', 'No', 'No', 'No', 2, '1', 'Familia', 'Familia', 'Si', 8, 8, 6);
+=======
+(1, 'Max', 'Henriquez Pimiento', 'TI', NULL, 'San Gil, Santander', '2007-06-09', 'Urbano', 'Calle 1 #5-12', '3124567890', 'max@gmail.com', '12345', 'No', NULL, 'No', 'Albino', 1, '1', 'Padre, madre, hermana, gatos.', 'Madre, padre', 'Si', 1, 1, 1);
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 -- --------------------------------------------------------
 
@@ -656,6 +675,7 @@ CREATE TABLE `madre` (
 
 INSERT INTO `madre` (`id_madre`, `nombre_completo`, `nivel_educativo`, `ocupacion`, `email`, `contrasena`, `telefono`) VALUES
 (1, 'Fernanda Cabal', 'Primaria', 'Senadora', 'fcabal@gmail.com', '1234', ''),
+<<<<<<< HEAD
 (2, 'madreprueba', 'doctora', 'ingeniera', 'madre@gmail.com', '12345', ''),
 (3, '111', '1111', '1111', '1111', '1111', ''),
 (4, '1554', 'hgfbdvs', 'hnbf', 'fbsvd', 'hfnargw', ''),
@@ -663,6 +683,9 @@ INSERT INTO `madre` (`id_madre`, `nombre_completo`, `nivel_educativo`, `ocupacio
 (6, '1', '1', '1', '1@gmail.com', '1', ''),
 (7, '10', '10', '10', '10@gmail.com', '12340', ''),
 (8, 'Leticia', 'Bachiller', 'ama de casa', 'l@gmail.com', '1234', '3214567890');
+=======
+(2, 'madreprueba', 'doctora', 'ingeniera', 'madre@gmail.com', '12345', '');
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 -- --------------------------------------------------------
 
@@ -726,6 +749,7 @@ CREATE TABLE `padre` (
 
 INSERT INTO `padre` (`id_padre`, `nombre_completo`, `nivel_educativo`, `ocupacion`, `email`, `contrasena`, `telefono`) VALUES
 (1, 'Alvaro Uribe', 'Primaria', 'Preso', 'auribe@gmail.com', '1234', ''),
+<<<<<<< HEAD
 (2, 'padreprueba', 'bachiller', 'mecanico', 'padre@gmail.com', '12345', ''),
 (3, '22222', '2222', '2222', '2222', '2222', ''),
 (4, 'thrgdv', 'trgm', 'etnrngd', 'tharbsf', 'w5htrbg', ''),
@@ -733,6 +757,9 @@ INSERT INTO `padre` (`id_padre`, `nombre_completo`, `nivel_educativo`, `ocupacio
 (6, '2', '2', '2', '2@gmail.com', '2', ''),
 (7, '20', '20', '20', '20@gmail.com', '22220', ''),
 (8, 'Alberto', 'Tecnologo', 'Analista de redes', 'albert@gmail.com', '1234', '3222555674');
+=======
+(2, 'padreprueba', 'bachiller', 'mecanico', 'padre@gmail.com', '12345', '');
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 -- --------------------------------------------------------
 
@@ -885,6 +912,7 @@ ALTER TABLE `descripcion_general`
   ADD KEY `id_red_apoyo` (`id_red_apoyo`),
   ADD KEY `id_otra_descripcion` (`id_otra_descripcion`),
   ADD KEY `id_estudiante` (`id_estudiante`);
+<<<<<<< HEAD
 
 --
 -- Indices de la tabla `diagnostico_dx_cie10`
@@ -892,6 +920,8 @@ ALTER TABLE `descripcion_general`
 ALTER TABLE `diagnostico_dx_cie10`
   ADD KEY `id_cie10` (`id_cie10`,`id_diag_med`),
   ADD KEY `id_diag_med` (`id_diag_med`);
+=======
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 --
 -- Indices de la tabla `diagnostico_medico`
@@ -1070,7 +1100,11 @@ ALTER TABLE `valoracion_pedagogica`
 -- AUTO_INCREMENT de la tabla `acudiente`
 --
 ALTER TABLE `acudiente`
+<<<<<<< HEAD
   MODIFY `id_acudiente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+=======
+  MODIFY `id_acudiente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 --
 -- AUTO_INCREMENT de la tabla `admin`
@@ -1100,7 +1134,11 @@ ALTER TABLE `atencion_medica`
 -- AUTO_INCREMENT de la tabla `capacidad`
 --
 ALTER TABLE `capacidad`
+<<<<<<< HEAD
   MODIFY `id_capacidad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `id_capacidad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 --
 -- AUTO_INCREMENT de la tabla `descripcion_general`
@@ -1257,6 +1295,7 @@ ALTER TABLE `descripcion_general`
   ADD CONSTRAINT `descripcion_general_ibfk_5` FOREIGN KEY (`id_red_apoyo`) REFERENCES `red_apoyo` (`id_red_apoyo`),
   ADD CONSTRAINT `descripcion_general_ibfk_6` FOREIGN KEY (`id_otra_descripcion`) REFERENCES `otra_descripcion` (`id_otra_descripcion`),
   ADD CONSTRAINT `descripcion_general_ibfk_7` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiante` (`id_estudiante`) ON DELETE CASCADE ON UPDATE CASCADE;
+<<<<<<< HEAD
 
 --
 -- Filtros para la tabla `diagnostico_dx_cie10`
@@ -1264,6 +1303,8 @@ ALTER TABLE `descripcion_general`
 ALTER TABLE `diagnostico_dx_cie10`
   ADD CONSTRAINT `diagnostico_dx_cie10_ibfk_1` FOREIGN KEY (`id_diag_med`) REFERENCES `diagnostico_medico` (`id_diag_med`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `diagnostico_dx_cie10_ibfk_2` FOREIGN KEY (`id_cie10`) REFERENCES `dx_cie10` (`id_cie10`) ON DELETE CASCADE ON UPDATE CASCADE;
+=======
+>>>>>>> 95ec6941a77aade8030c6c99a1337554fccda583
 
 --
 -- Filtros para la tabla `diagnostico_medico`

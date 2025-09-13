@@ -10,88 +10,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = null;
     $rol_final = $rol;
 
-    if ($rol === "admin") {
-        // admin
-        $query = "SELECT * FROM admin WHERE email='$email' AND contrasena='$contrasena'";
-        $resultado = $conexion->query($query);
-        if ($resultado && $resultado->num_rows > 0) {
-            $usuario = $resultado->fetch_assoc();
-            $rol_final = "admin";
-        }
+$stmt = null;
+if ($rol === "admin") {
+    // Tabla admin → campo email
+    $stmt = $conexion->prepare("SELECT * FROM admin WHERE email=? AND contrasena=?");
+    $stmt->bind_param("ss", $email, $contrasena);
+} elseif ($rol === "docente") {
+    // Tabla docente → campo correo y contraseña
+    $stmt = $conexion->prepare("SELECT * FROM docente WHERE email=? AND contrasena=?");
+    $stmt->bind_param("ss", $email, $contrasena);
+} elseif ($rol === "acudiente") {
+    // Tabla cuidador → campo email
+    $stmt = $conexion->prepare("SELECT * FROM cuidador WHERE email=? AND contrasena=?");
+    $stmt->bind_param("ss", $email, $contrasena);
+}
 
-        // docente_apoyo
-        if (!$usuario) {
-            $query = "SELECT * FROM docente_apoyo WHERE email='$email' AND contrasena='$contrasena'";
-            $resultado = $conexion->query($query);
-            if ($resultado && $resultado->num_rows > 0) {
-                $usuario = $resultado->fetch_assoc();
-                $rol_final = "docente_apoyo";
-            }
-        }
+$result = null;
+if ($stmt) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+}
 
-        // directivo
-        if (!$usuario) {
-            $query = "SELECT * FROM directivo WHERE email='$email' AND contrasena='$contrasena'";
-            $resultado = $conexion->query($query);
-            if ($resultado && $resultado->num_rows > 0) {
-                $usuario = $resultado->fetch_assoc();
-                $rol_final = "directivo";
-            }
-        }
-    }
-
-    elseif ($rol === "docente") {
-        $query = "SELECT * FROM docente WHERE email='$email' AND contrasena='$contrasena'";
-        $resultado = $conexion->query($query);
-        if ($resultado && $resultado->num_rows > 0) {
-            $usuario = $resultado->fetch_assoc();
-            $rol_final = "docente";
-        }
-    }
-
-    elseif ($rol === "acudiente") {
-        // acudiente
-        $query = "SELECT * FROM acudiente WHERE email='$email' AND contrasena='$contrasena'";
-
-        $resultado = $conexion->query($query);
-        if ($resultado && $resultado->num_rows > 0) {
-            $usuario = $resultado->fetch_assoc();
-            $rol_final = "acudiente";
-        }
-
-        // madre
-        if (!$usuario) {
-            $query = "SELECT * FROM madre WHERE email='$email' AND contrasena='$contrasena'";
-            $resultado = $conexion->query($query);
-            if ($resultado && $resultado->num_rows > 0) {
-                $usuario = $resultado->fetch_assoc();
-                $rol_final = "madre";
-            }
-        }
-
-        // padre
-        if (!$usuario) {
-            $query = "SELECT * FROM padre WHERE email='$email' AND contrasena='$contrasena'";
-            $resultado = $conexion->query($query);
-            if ($resultado && $resultado->num_rows > 0) {
-                $usuario = $resultado->fetch_assoc();
-                $rol_final = "padre";
-            }
-        }
-    }
-
-    if ($usuario) {
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['rol'] = $rol_final;
-
-        // Guardar el rol en localStorage y redirigir
-        echo "<script>
-            localStorage.setItem('rol', '$rol_final');
-            window.location.href = '../Interfaz.html';
-        </script>";
-        exit;
-    } else {
-        echo "<script>alert('Credenciales incorrectas'); window.location.href='../Inicio_sesion.html';</script>";
-    }
+if ($result && mysqli_num_rows($result) > 0) {
+    // ✅ Login correcto → guardar en sesión PHP y localStorage
+    $_SESSION['rol'] = $rol;
+    $_SESSION['usuario_id'] = mysqli_fetch_assoc($result)['id'] ?? null;
+    
+    echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <script>
+            // Guardar rol en localStorage
+            localStorage.setItem('rol', '$rol');
+            // Confirmar que se guardó
+            console.log('Rol guardado:', localStorage.getItem('rol'));
+            // Redirigir
+            window.location.href = '../interfaz.html';
+        </script>
+    </body>
+    </html>";
+    exit();
+} else {
+    // ❌ Login fallido
+    echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <script>
+            alert('Usuario o contraseña incorrectos');
+            window.location.href = '../index.html';
+        </script>
+    </body>
+    </html>";
+    exit();
 }
 ?>
